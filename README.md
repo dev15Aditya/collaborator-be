@@ -9,6 +9,9 @@ This is a simple collaborative whiteboard server using **Express**, **Socket.io*
 - Actions (draw, undo, redo) are broadcast to all connected clients in the room.
 - In-memory storage for whiteboard states.
 
+'Hosted URL'
+`https://github.com/dev15Aditya/collaborator`
+
 ## Tech Stack
 
 - **Node.js**
