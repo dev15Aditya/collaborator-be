@@ -21,10 +21,18 @@ This is a simple collaborative whiteboard server using **Express**, **Socket.io*
 To run this server locally, follow these steps:
 
 ### 1. Clone the repository:
-
-```bash
+`
 git clone <your-repo-url>
-cd <your-project-directory>
+cd <your-project-directory> 
+`
 
+### 2. Install dependencies:
+`
+npm install
+`
 
-# collaborator-be
+### 3. Start the server:
+`
+node server.js
+`
+
