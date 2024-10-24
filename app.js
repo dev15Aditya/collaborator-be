@@ -1,18 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-const roomController = require('./controllers/roomController');
+const corsConfig = require('./utils/corsConfig');
+const router = require('./routes/roomRoutes');
+require('dotenv').config();
 
 const app = express();
 
-// CORS configuration
-app.use(cors({
-  origin: ["http://localhost:5173", "https://collaborator-gold.vercel.app"],
-  credentials: true
-}));
-
+// Middlewares
+app.use(cors(corsConfig));
 app.use(express.json());
-
-// Routes
-app.use('/create-room', roomController);
+app.use('/api/rooms', router)
 
 module.exports = app;

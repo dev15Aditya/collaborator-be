@@ -1,11 +1,25 @@
-const express = require('express');
-const router = express.Router();
-const whiteboardService = require('../services/whiteboardService');
+const { createRoom, getRoomUsers, joinRoom, leaveRoom } = require("../services/roomService.js");
 
-// Create a new room
-router.post('/', (req, res) => {
-  const roomId = whiteboardService.createRoom();
-  res.json({ roomId });
-});
+module.exports.createRoomController = async (req, res) => {
+    const { roomId, userName } = req.body;
+    const response = await createRoom({ roomId, userName });
+    res.status(response.status).send(response.message);
+}
 
-module.exports = router;
+module.exports.joinRoomController = async (req, res) => {
+    const { roomId, userName } = req.body;
+    const response = await joinRoom({ roomId, userName });
+    res.status(response.status).send(response.message);
+}
+
+module.exports.leaveRoomController = async (req, res) => {
+    const { roomId, userName } = req.body;
+    const response = await leaveRoom({ roomId, userName });
+    res.status(response.status).send(response.message);
+}
+
+module.exports.getRoomUsersController = async (req, res) => {
+    const { roomId } = req.params;
+    const response = await getRoomUsers({ roomId });
+    res.status(response.status).send(response.users);
+}
