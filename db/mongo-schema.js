@@ -27,15 +27,20 @@ const chatSchema = new mongoose.Schema({
 })
 
 const whiteboardSchema = new mongoose.Schema({
-  room: {
+  roomId: {
     type: String,
+    required: true,
+    unique: true
+  },
+  snapshot: {
+    type: Object,
     required: true
   },
-  user: {
-    type: String,
-    required: true
-  },
-})
+  lastModified: {
+    type: Date,
+    default: Date.now
+  }
+});
 
 const userSchema = new mongoose.Schema({
   userName: {

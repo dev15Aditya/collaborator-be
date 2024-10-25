@@ -9,6 +9,8 @@ const app = express();
 // Middlewares
 app.use(cors(corsConfig));
 app.use(express.json());
-app.use('/api/rooms', router)
+app.use('/api/rooms', router);
+
+
 
 module.exports = app;
