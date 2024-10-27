@@ -14,7 +14,7 @@ const server = http.createServer(app);
 // Create socket server
 const io = new Server(server, {
     cors: {
-        origin: 'https://collabx-red.vercel.app/',
+        origin: 'https://collabx-red.vercel.app',
         methods: ["GET", "POST"]
     }
 });
