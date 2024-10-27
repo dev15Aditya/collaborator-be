@@ -1,5 +1,5 @@
 const corsConfig = {
-    origin: "http://localhost:3000",
+    origin: "https://collabx-red.vercel.app/",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
     credentials: true
