@@ -16,7 +16,8 @@ const io = new Server(server, {
     cors: {
         origin: 'https://collabx-red.vercel.app',
         methods: ["GET", "POST"]
-    }
+    },
+    transports: ['websocket']
 });
 
 io.on('connection', (socket) => {
