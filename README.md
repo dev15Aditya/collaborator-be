@@ -40,19 +40,30 @@ This is a ongoing project. currently it is completed for real-time chat applicat
     nodemon
 
 ## Project Structure
-├── config
-│   ├── db.js                  # MongoDB connection configuration
-│   ├── socket.js              # Socket.io setup and event handling
-├── routes
-│   ├── userRoutes.js          # User authentication routes
-│   ├── roomRoutes.js          # Room management routes
-│   ├── messageRoutes.js       # Message handling routes
-├── controllers
-│   ├── userController.js      # Logic for signup and login
-│   ├── roomController.js      # Logic for creating/joining/leaving rooms
-│   ├── messageController.js   # Logic for sending and fetching messages
-├── models
-│   ├── User.js                # User model
-│   ├── Room.js                # Room model
-│   ├── Message.js             # Message model
-├── app.js                     # Express and Socket.io server setup
+
+- src/
+  - config/
+    - db.js               // Database connection setup
+    - socket.js           // Socket.io configuration and events
+  - controllers/
+    - roomController.js   // Room-related endpoints
+    - userController.js   // User-related endpoints
+    - messageController.js // Message-related endpoints
+  - models/
+    - Room.js             // Room schema
+    - User.js             // User schema
+    - Message.js          // Message schema
+    - Whiteboard.js       // Whiteboard schema
+  - routes/
+    - roomRoutes.js       // Routes for room-related endpoints
+    - userRoutes.js       // Routes for user-related endpoints
+    - messageRoutes.js    // Routes for message-related endpoints
+  - services/
+    - roomService.js      // Business logic for rooms
+    - userService.js      // Business logic for users
+    - messageService.js   // Business logic for messages
+  - utils/
+    - auth.js             // Authentication middleware and helpers
+    - constants.js        // App-wide constants
+    - socketEvents.js     // Socket event names and constants
+  - app.js                // Express app setup and Socket.io server
