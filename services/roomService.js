@@ -6,7 +6,8 @@ module.exports.createRoom = async ({roomId, userName}) => {
     roomId
   });
   if(room) {
-    return {status: 400,  message: 'Room already exists'}
+    await this.joinRoom({roomId, userName});
+    return { status: 200, message: 'Room already exists. Joined room successfully'}
   }
   await Room.create({roomId, userName});
   return { status: 201, message: 'Room created successfully' };
@@ -33,6 +34,7 @@ module.exports.leaveRoom = async ({roomId, userName}) => {
     return { status: 404, message: 'Room not found' };
   }
   await Room.updateOne({roomId}, { $pull: { users: userName } });
+  return { status: 200, message: `Left room ${roomId}` };
 }
 
 module.exports.getRoomUsers = async ({roomId}) => {
