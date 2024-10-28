@@ -1,41 +1,58 @@
-# Collaborative Whiteboard API
+# Real-Time Chat Application with Public and Private Rooms
 
-This is a simple collaborative whiteboard server using **Express**, **Socket.io**, and **CORS**. It supports real-time communication between multiple clients for drawing on a shared whiteboard.
+This is a ongoing project. currently it is completed for real-time chat application. It's built with **Node.js**, **Express**, **MongoDB**, and **Socket.io**. The application allows users to join public chat rooms, initiate private 1:1 chats, and exchange messages with real-time updates.
 
 ## Features
 
-- Create a unique room for each whiteboard session.
-- Clients can join specific rooms and see real-time updates.
-- Actions (draw, undo, redo) are broadcast to all connected clients in the room.
-- In-memory storage for whiteboard states.
+- **User Authentication**: Signup and login for users to access the chat system.
+- **Public Chat Rooms**: Users can join any public room and chat with other users.
+- **Private 1:1 Chats**: Users can initiate and participate in private chats with specific users.
+- **Real-Time Messaging**: Using Socket.io, messages are delivered instantly across all connected clients.
+- **Database Storage**: Messages and user data are stored in MongoDB for persistence.
 
-'Hosted URL'
-`https://github.com/dev15Aditya/collaborator`
+## Getting Started
 
-## Tech Stack
+### Prerequisites
 
-- **Node.js**
-- **Express.js**
-- **Socket.io**
-- **CORS**
+- **Node.js** and **npm** installed
+- **MongoDB** instance running locally or remotely
+- **Postman** (optional, for testing API endpoints)
 
-## Setup
+### Installation
 
-To run this server locally, follow these steps:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dev15Aditya/collaborator-be.git
+   cd collaborator-be
 
-### 1. Clone the repository:
-`
-git clone <your-repo-url>
-cd <your-project-directory> 
-`
+2. Install node modules
+    ```bash
+    npm install
 
-### 2. Install dependencies:
-`
-npm install
-`
+3. Create a .env file in root directory
+    ```bash
+    JWT_SECRET
+    origin_uri (this is for cors)
+    mongo_uri
 
-### 3. Start the server:
-`
-node server.js
-`
+4. In the terminal start project
+    ```bash
+    nodemon
 
+## Project Structure
+├── config
+│   ├── db.js                  # MongoDB connection configuration
+│   ├── socket.js              # Socket.io setup and event handling
+├── routes
+│   ├── userRoutes.js          # User authentication routes
+│   ├── roomRoutes.js          # Room management routes
+│   ├── messageRoutes.js       # Message handling routes
+├── controllers
+│   ├── userController.js      # Logic for signup and login
+│   ├── roomController.js      # Logic for creating/joining/leaving rooms
+│   ├── messageController.js   # Logic for sending and fetching messages
+├── models
+│   ├── User.js                # User model
+│   ├── Room.js                # Room model
+│   ├── Message.js             # Message model
+├── app.js                     # Express and Socket.io server setup
